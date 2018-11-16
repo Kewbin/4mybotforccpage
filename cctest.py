@@ -7,7 +7,7 @@ import urllib.request as urllib2
 import datetime
 import re
 
-print("started")
+print("bot started")
 
 def job():
     #Google Spreadsheets
