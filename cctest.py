@@ -7,6 +7,8 @@ import urllib.request as urllib2
 import datetime
 import re
 
+print("running")
+
 def job():
     #Google Spreadsheets
     scope = ['https://spreadsheets.google.com/feeds',
