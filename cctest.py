@@ -7,7 +7,7 @@ import urllib.request as urllib2
 import datetime
 import re
 
-print("running")
+print("started")
 
 def job():
     #Google Spreadsheets
@@ -23,6 +23,7 @@ def job():
     #print(time)
     aResp = urllib2.urlopen("http://cubiccastles.com/")
     webpage = aResp.read()
+    row_count = sheet.acell("E1").value
     
     nouo = re.findall(r'<br/>(.*?)<br/>',str(webpage))
     for eachA in nouo:
@@ -30,8 +31,8 @@ def job():
 
     #print(nouo1)
 
-    row = [date, time, nouo1]
-    index = 2
+    row = [date + " " + time, int(nouo1)]
+    index = int(row_count) + 1
     sheet.insert_row(row, index)
 
 schedule.every(30).minutes.do(job)
